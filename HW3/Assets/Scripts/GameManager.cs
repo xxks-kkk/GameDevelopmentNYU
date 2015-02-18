@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 		private Vector3 treasurePos, shipPos, arch4Pos, arch2Pos, iniPos;
 		private float dist, dist2, dist4;
 		private bool win = false;
+		private Quaternion iniRotation;
+
 		//private string textBuffer = "";
 
 		// Use this for initialization
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
 				arch4 = GameObject.Find ("arch4");
 				arch2 = GameObject.Find ("arch2");
 				iniPos = ship.transform.position;
+				iniRotation = ship.transform.rotation;
 		}
 	
 		// Update is called once per frame
@@ -64,8 +67,7 @@ public class GameManager : MonoBehaviour
 						reset ();
 				}
 
-				
-
+			
 
 				info.GetComponent<Text> ().text = textBuffer;
 
@@ -75,5 +77,6 @@ public class GameManager : MonoBehaviour
 		{
 				ship.transform.position = iniPos;
 				win = false;
+				ship.transform.rotation = iniRotation;
 		}
 }
