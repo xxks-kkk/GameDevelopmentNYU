@@ -760,8 +760,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 17.2749939, y: -6.75}
-  m_SizeDelta: {x: 393.450012, y: 227.5}
+  m_AnchoredPosition: {x: 5, y: 164}
+  m_SizeDelta: {x: 837, y: 228}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &626152077
 MonoBehaviour:
@@ -783,7 +783,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -2161,7 +2161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552d2538279e51947abb143c198d91bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 30
+  movementSpeed: 100
   turningSpeed: 70
 --- !u!95 &2045845538
 Animator:
