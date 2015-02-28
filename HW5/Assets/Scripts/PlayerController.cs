@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-		public float speed = 15f;
+		float speed = 10f;
 		Rigidbody rbody;
 		float distToGround;
 
@@ -26,6 +26,12 @@ public class PlayerController : MonoBehaviour
 		{
 				rbody.AddForce (transform.forward * speed * Input.GetAxis ("Vertical"));
 				rbody.AddForce (transform.right * speed * Input.GetAxis ("Horizontal"));
+				
+				if (Input.GetKey (KeyCode.LeftShift)) {
+						speed = 30f;
+				} else {
+						speed = 10f;
+				}
 				if (Input.GetKeyDown (KeyCode.Space) && isGrounded ()) {
 						rbody.AddForce (transform.up * 10, ForceMode.Impulse);
 				}
