@@ -4,19 +4,29 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
-
-		float timer = 200.0f;
+		float startTime = 5 * 60f; // startTime is set in minutes
+		string timer;
 		public Text time;
-	
 
-		// Update is called once per frame
+		void Start ()
+		{
+				//TODO: need to adjust text box to make it looks perfect
+				//time.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (Screen.height - 10, Screen.height - 10);
+				//time.GetComponent<RectTransform> ().sizeDelta = new Vector2 (40, 30);
+		}
 		void Update ()
 		{
-				timer -= Time.deltaTime;
+				startTime -= Time.deltaTime;
 
-				if (timer <= 0) {
-						timer = 0;
+				if (startTime <= 0) {
+						startTime = 0;
 				}
-				time.GetComponent<Text> ().text = timer.ToString ("0");
+
+				int minutes = (int)startTime / 60;
+				int seconds = (int)startTime % 60;
+				timer = string.Format ("{0:00}:{1:00}", minutes, seconds);
+
+				time.GetComponent<Text> ().text = timer;
 		}
+		
 }
