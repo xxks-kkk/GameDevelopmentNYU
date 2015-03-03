@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-		float speed = 10f;
+		float speed = 20f;
 		Rigidbody rbody;
 		float distToGround;
 
