@@ -13,7 +13,7 @@ public class DoorLogic : MonoBehaviour
 		private Animator anim;
 		public GameObject door;
 		private GameObject player;
-
+	
 		void Awake ()
 		{
 				anim = door.GetComponent<Animator> ();

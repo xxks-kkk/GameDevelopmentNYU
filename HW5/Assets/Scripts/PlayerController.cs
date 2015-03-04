@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
 				if (Input.GetKey (KeyCode.LeftShift)) {
 						speed = 30f;
 				} else {
-						speed = 10f;
+						speed = 20f;
 				}
 				if (Input.GetKeyDown (KeyCode.Space) && isGrounded ()) {
 						rbody.AddForce (transform.up * 10, ForceMode.Impulse);

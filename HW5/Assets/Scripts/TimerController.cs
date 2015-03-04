@@ -6,10 +6,12 @@ public class TimerController : MonoBehaviour
 {
 		float startTime = 5 * 60f; // startTime is set in minutes
 		string timer;
+		GameObject GM;
 		public Text time;
 
 		void Start ()
 		{
+				GM = GameObject.Find ("GameManager");
 				//TODO: need to adjust text box to make it looks perfect
 				//time.GetComponent<RectTransform> ().anchoredPosition = new Vector2 (Screen.height - 10, Screen.height - 10);
 				//time.GetComponent<RectTransform> ().sizeDelta = new Vector2 (40, 30);
@@ -17,6 +19,7 @@ public class TimerController : MonoBehaviour
 		void Update ()
 		{
 				startTime -= Time.deltaTime;
+				GM.GetComponent<GameManager> ().time = startTime;
 
 				if (startTime <= 0) {
 						startTime = 0;
