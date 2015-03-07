@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
 		float speed = 20f;
 		Rigidbody rbody;
 		float distToGround;
+		Slider healthBarSlider;
+		GameObject GM;
 
 		// Use this for initialization
 		void Start ()
@@ -14,12 +17,25 @@ public class PlayerController : MonoBehaviour
 
 				// get the distance to ground
 				distToGround = collider.bounds.extents.y;
+		
+				GameObject tmp = GameObject.Find ("HealthBarSlider");
+				healthBarSlider = tmp.GetComponent<Slider> ();
+
+				GM = GameObject.Find ("GameManager");
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
 	
+		}
+
+		void OnTriggerStay (Collider other)
+		{
+				if (other.gameObject.tag == "hazard" && healthBarSlider.value > 0) {
+						healthBarSlider.value -= 0.1f;
+						GM.GetComponent<GameManager> ().health -= 0.1f;
+				}
 		}
 
 		void FixedUpdate ()
