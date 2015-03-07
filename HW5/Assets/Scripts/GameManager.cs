@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 		public bool insideFacility = false;
 		public int numScientistsLeft;
 		public float time;
+		public float health;
 		GameObject winDisplay;
 
 		// Use this for initialization
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
 				} else if (time.ToString ("0").Equals ("0") && numScientistsLeft == 0 && insideFacility) {
 						winDisplay.GetComponent<EndingDisplay> ().failure3 = true;
 						
+				} else if (health <= 0) {
+						winDisplay.GetComponent<EndingDisplay> ().failure4 = true;
 				}
 		}
 }
