@@ -10,14 +10,23 @@ public class GameManager : MonoBehaviour
 		public float time;
 		public float health;
 		GameObject winDisplay;
+		Slider PowerBarSlider;
 
 		// Use this for initialization
 		void Start ()
 		{
 				winDisplay = GameObject.Find ("Win");
+
+				GameObject tmp = GameObject.Find ("PowerBarSlider");
+				PowerBarSlider = tmp.GetComponent<Slider> ();
+		}
+
+		void Update ()
+		{
+				PowerBarSlider.value -= 0.02f;
 		}
 	
-		// Update is called once per frame
+		
 		void LateUpdate ()
 		{
 				//Debug.Log ("Time: " + time.ToString ("0"));
