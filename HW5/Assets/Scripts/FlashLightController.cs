@@ -16,7 +16,7 @@ public class FlashLightController : MonoBehaviour
 		void Update ()
 		{
 				if (Input.GetButtonDown ("toggleLight") && FlashLightOn == false) {
-						light.intensity = 2;
+						light.intensity = 3;
 						FlashLightOn = true;
 				} else if (Input.GetButtonDown ("toggleLight") && FlashLightOn) {
 						light.intensity = 0;
