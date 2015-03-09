@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 		public float health;
 		GameObject winDisplay;
 		Slider PowerBarSlider;
+		GameObject flashLight;
 
 		// Use this for initialization
 		void Start ()
@@ -19,11 +20,16 @@ public class GameManager : MonoBehaviour
 
 				GameObject tmp = GameObject.Find ("PowerBarSlider");
 				PowerBarSlider = tmp.GetComponent<Slider> ();
+
+				flashLight = GameObject.Find ("FlashLight");
+				
 		}
 
 		void Update ()
 		{
-				PowerBarSlider.value -= 0.02f;
+				if (flashLight.GetComponent<FlashLightController> ().FlashLightOn) {
+						PowerBarSlider.value -= 0.02f;
+				}
 		}
 	
 		
