@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 		void Update ()
 		{
 				if (flashLight.GetComponent<FlashLightController> ().FlashLightOn) {
-						PowerBarSlider.value -= 0.02f;
+						PowerBarSlider.value -= 0.5f * Time.deltaTime;
 				}
 		}
 	
@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
 						
 				} else if (health <= 0) {
 						winDisplay.GetComponent<EndingDisplay> ().failure4 = true;
+				} else if (PowerBarSlider.value <= 0) {
+						winDisplay.GetComponent<EndingDisplay> ().failure5 = true;
 				}
 		}
 }

@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
 		{
 				if (other.gameObject.tag == "hazard" && healthBarSlider.value > 0) {
 						healthBarSlider.value -= 0.1f;
-						GM.GetComponent<GameManager> ().health -= 0.1f;
+						GM.GetComponent<GameManager> ().health -= 3f * Time.deltaTime;
 				}
 		}
 
