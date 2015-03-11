@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class EndingDisplay : MonoBehaviour
 {
 
-		public bool failure1 = false, failure2 = false, failure3 = false, failure4 = false, win = false;
+		public bool failure1 = false, failure2 = false, failure3 = false, failure4 = false, failure5 = false, win = false;
 		public Text winDisplay;
 
 		// Use this for initialization
@@ -32,6 +32,8 @@ public class EndingDisplay : MonoBehaviour
 						buffer = "Congraz! You successfully save all the scientist and exit the facility!";
 				} else if (failure4) {
 						buffer = "Well, you should at least keep yourself alive before saving others";
+				} else if (failure5) {
+						buffer = "Now you run out of power, what can you do? Prepare to die!";
 				}
 				winDisplay.GetComponent<Text> ().text = buffer;
 		}
