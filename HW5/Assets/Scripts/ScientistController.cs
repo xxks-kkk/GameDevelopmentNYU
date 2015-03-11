@@ -27,6 +27,8 @@ public class ScientistController : MonoBehaviour
 						tmp.GetComponent<TimerController> ().startTime += 10f;
 						GameObject tmp2 = GameObject.Find ("PowerBarSlider");
 						tmp2.GetComponent<Slider> ().value += 10f;
+						GameObject tmp3 = GameObject.Find ("HealthBarSlider");
+						tmp3.GetComponent<Slider> ().value += 5f;
 				}
 		}
 }
