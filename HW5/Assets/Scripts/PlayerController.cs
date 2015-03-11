@@ -57,5 +57,18 @@ public class PlayerController : MonoBehaviour
 		{
 				return Physics.Raycast (transform.position, -Vector3.up, distToGround + 0.1f);
 		}
+
+		void OnCollisionEnter (Collision other)
+		{
+				if (other.gameObject.tag == "powerup") {
+						Destroy (other.gameObject);
+						GameObject tmp2 = GameObject.Find ("PowerBarSlider");
+						tmp2.GetComponent<Slider> ().value += 5f;
+				} else if (other.gameObject.tag == "healup") {
+						Destroy (other.gameObject);
+						GameObject tmp3 = GameObject.Find ("HealthBarSlider");
+						tmp3.GetComponent<Slider> ().value += 5f;
+				}
+		}
 		
 }
