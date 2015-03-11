@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class TimerController : MonoBehaviour
 {
-		float startTime = 5 * 60f; // startTime is set in minutes
+		public float startTime = 5 * 60f; // startTime is set in minutes
 		string timer;
 		GameObject GM;
 		public Text time;
