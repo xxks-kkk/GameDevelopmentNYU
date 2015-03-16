@@ -11,7 +11,7 @@ public class Hint : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				intro = "Hello there! I'm one of scientists that just escpaed the building in front of you. There are still a few my colleagues trapped in there." +
+				intro = "Hello there! I'm one of scientists that just escaped the building in front of you. There are still a few my colleagues trapped in there." +
 						"Please help them get out of it in 5 minutes because this research building is about to explode." +
 						"You can use [shift] to sprint, [space] to jump, and [F] to activate your torchlight." +
 						"Please be hurry!";
