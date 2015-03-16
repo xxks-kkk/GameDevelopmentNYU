@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 		GameObject winDisplay;
 		Slider PowerBarSlider;
 		GameObject flashLight;
+		Slider HealthBarSlider;
 
 		// Use this for initialization
 		void Start ()
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
 
 				GameObject tmp = GameObject.Find ("PowerBarSlider");
 				PowerBarSlider = tmp.GetComponent<Slider> ();
+
+				GameObject tmp2 = GameObject.Find ("HealthBarSlider");
+				HealthBarSlider = tmp2.GetComponent<Slider> ();
 
 				flashLight = GameObject.Find ("FlashLight");
 				
@@ -53,7 +57,7 @@ public class GameManager : MonoBehaviour
 				} else if (time.ToString ("0").Equals ("0") && numScientistsLeft == 0 && insideFacility) {
 						winDisplay.GetComponent<EndingDisplay> ().failure3 = true;
 						
-				} else if (health <= 0) {
+				} else if (HealthBarSlider.value <= 0) {
 						winDisplay.GetComponent<EndingDisplay> ().failure4 = true;
 				}
 		}
