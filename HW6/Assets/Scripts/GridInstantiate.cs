@@ -6,14 +6,16 @@ public class GridInstantiate : MonoBehaviour
 {
 		public Transform floorPrefab;
 		public Transform wallPrefab;
-		float rand;
+		public Transform PathInstantiateCube;
+		float rand, rand2;
+		public float chance;
 
 		// Use this for initialization
 		void Start ()
 		{
 				for (int x = 0; x < 5; x++) {
 						for (int z = 0; z<5; z++) {
-								Vector3 pos = new Vector3 (x * 0.5f, 0, z * 0.5f) + transform.position;
+								Vector3 pos = new Vector3 (x * 5, 0, z * 5) + transform.position;
 								rand = Random.Range (0f, 1f);
 								//Debug.Log ("Pos: " + pos);
 								//Debug.Log ("Cur pos: " + transform.position);
@@ -23,16 +25,25 @@ public class GridInstantiate : MonoBehaviour
 								} else if (rand < 0.95f) {
 										Instantiate (wallPrefab, pos, Quaternion.identity);
 								} else {
-
+										
 								}
+								
 						}
 				}
+
+				//rand2 = Random.Range (0f, 1f);
+				//if (rand2 < chance) {
+				//	Instantiate (PathInstantiateCube);
+				//}
 				Destroy (gameObject);
 		}
 	
 		// Update is called once per frame
 		void Update ()
 		{
-	
+				rand2 = Random.Range (0f, 1f);
+				if (rand2 < chance) {
+						Instantiate (PathInstantiateCube);
+				}
 		}
 }
