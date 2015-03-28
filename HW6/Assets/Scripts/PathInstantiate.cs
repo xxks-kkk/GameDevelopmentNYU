@@ -25,8 +25,8 @@ public class PathInstantiate : MonoBehaviour
 						} else if (rand < 0.5f) {
 								transform.Rotate (0f, -90f, 0f);
 						}
-						Instantiate (floorTilePrefab, transform.position, transform.rotation);
-						transform.position += transform.forward * 5;
+						Instantiate (floorTilePrefab, transform.position, Quaternion.identity);
+						transform.position += transform.forward * 5f;
 						counter += 1;
 				} else {
 						Destroy (gameObject);
