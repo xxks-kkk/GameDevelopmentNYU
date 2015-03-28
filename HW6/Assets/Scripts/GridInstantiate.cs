@@ -27,7 +27,10 @@ public class GridInstantiate : MonoBehaviour
 								} else {
 										
 								}
-								
+								rand2 = Random.Range (0f, 1f);
+								if (rand2 < chance) {
+										Instantiate (PathInstantiateCube);
+								}
 						}
 				}
 
@@ -41,9 +44,6 @@ public class GridInstantiate : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				rand2 = Random.Range (0f, 1f);
-				if (rand2 < chance) {
-						Instantiate (PathInstantiateCube);
-				}
+				
 		}
 }
