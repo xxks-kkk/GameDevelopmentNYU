@@ -7,7 +7,9 @@ public class PathInstantiate : MonoBehaviour
 
 		int counter = 0;
 		public Transform floorTilePrefab;
-		float rand;
+		float rand, rand2;
+		public float chance;
+		public Transform GridInstantiateCube;
 
 		// Use this for initialization
 		void Start ()
@@ -26,10 +28,23 @@ public class PathInstantiate : MonoBehaviour
 								transform.Rotate (0f, -90f, 0f);
 						}
 						Instantiate (floorTilePrefab, transform.position, Quaternion.identity);
+						
+						
+						
 						transform.position += transform.forward * 5f;
 						counter += 1;
 				} else {
 						Destroy (gameObject);
 				}
+
+				rand2 = Random.Range (0f, 1f);
+				if (rand2 < chance) {
+						Instantiate (GridInstantiateCube);
+				}
+		}
+
+		void OnTriggerEnter (Collider other)
+		{
+				Destroy (other.gameObject);
 		}
 }
