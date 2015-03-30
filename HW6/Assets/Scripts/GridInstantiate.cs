@@ -8,11 +8,13 @@ public class GridInstantiate : MonoBehaviour
 		public Transform wallPrefab;
 		public Transform PathInstantiateCube;
 		float rand, rand2;
-		public float chance;
+		float chance;
 
 		// Use this for initialization
 		void Start ()
 		{
+				chance = Random.Range (0.1f, 1f);
+
 				for (int x = 0; x < 5; x++) {
 						for (int z = 0; z<5; z++) {
 								Vector3 pos = new Vector3 (x * 5, 0, z * 5) + transform.position;
@@ -27,17 +29,18 @@ public class GridInstantiate : MonoBehaviour
 								} else {
 										
 								}
-								rand2 = Random.Range (0f, 1f);
-								if (rand2 < chance) {
-										Instantiate (PathInstantiateCube);
-								}
+								//rand2 = Random.Range (0f, 1f);
+								//if (rand2 < chance) {
+								//	Instantiate (PathInstantiateCube);
+								//}
 						}
 				}
 
-				//rand2 = Random.Range (0f, 1f);
-				//if (rand2 < chance) {
-				//	Instantiate (PathInstantiateCube);
-				//}
+				
+				rand2 = Random.Range (0f, 1f);
+				if (rand2 < chance) {
+						Instantiate (PathInstantiateCube);
+				}
 				Destroy (gameObject);
 		}
 	

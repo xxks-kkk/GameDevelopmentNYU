@@ -8,13 +8,13 @@ public class PathInstantiate : MonoBehaviour
 		int counter = 0;
 		public Transform floorTilePrefab;
 		float rand, rand2;
-		public float chance;
+		float chance;
 		public Transform GridInstantiateCube;
 
 		// Use this for initialization
 		void Start ()
 		{
-	
+				chance = Random.Range (0.1f, 1f);
 		}
 	
 		// Update is called once per frame
