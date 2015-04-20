@@ -14,7 +14,10 @@ public class EnemyController : MonoBehaviour
 	public float attackRange = 2f;
 
 	bool canSeePlayer = false;
-	
+
+
+	bool turnAround = false;
+	bool doOnce = true;
 
 
 	// Use this for initialization
@@ -25,6 +28,11 @@ public class EnemyController : MonoBehaviour
 	
 	void Update ()
 	{
+		if (!canSeePlayer) {
+			patrol ();
+		}
+
+
 		if (PlayerController.isPlayerAlive) {
 			playerDistance = Vector3.Distance (player.position, transform.position);
 	
@@ -36,6 +44,8 @@ public class EnemyController : MonoBehaviour
 				hit.collider.gameObject.tag == "Player") {
 				canSeePlayer = true;
 				lookAtPlayer ();
+			} else {
+				canSeePlayer = false;
 			}
 
 			if (playerDistance < chaseStartRange) {
@@ -53,6 +63,33 @@ public class EnemyController : MonoBehaviour
 		Quaternion rotation = Quaternion.LookRotation (player.position - transform.position);
 		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, Time.deltaTime * rotationDamping);
 	}
+
+	void patrol ()
+	{
+
+		Ray ray = new Ray (transform.position, transform.forward);
+		if (turnAround) {
+			if (doOnce) {
+				doOnce = false;
+				
+				//transform.Rotate (0f, 90f, 0f);
+				//transform.Rotate (0f, -90f, 0f);
+				transform.Rotate (0f, 180f, 0f);
+			}
+			GetComponent<Rigidbody> ().velocity = Vector3.zero;
+			
+			turnAround = false;
+		} else {
+			doOnce = true;
+			GetComponent<Rigidbody> ().velocity = transform.forward * speed;
+		}
+		
+		if (Physics.Raycast (ray, 1f) && !turnAround) {
+			turnAround = true;
+			
+		} 
+	}
+
 
 	void chase ()
 	{
