@@ -73,8 +73,8 @@ public class EnemyController : MonoBehaviour
 				doOnce = false;
 				
 				//transform.Rotate (0f, 90f, 0f);
-				//transform.Rotate (0f, -90f, 0f);
-				transform.Rotate (0f, 180f, 0f);
+				transform.Rotate (0f, -90f, 0f);
+				//transform.Rotate (0f, 180f, 0f);
 			}
 			GetComponent<Rigidbody> ().velocity = Vector3.zero;
 			
