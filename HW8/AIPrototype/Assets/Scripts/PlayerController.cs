@@ -37,6 +37,6 @@ public class PlayerController : MonoBehaviour
 			isPlayerAlive = false;
 		}
 
-		Debug.Log ("Player health: " + health);
+		//Debug.Log ("Player health: " + health);
 	}
 }
